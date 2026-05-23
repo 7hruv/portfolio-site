@@ -1,0 +1,949 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.48 0.06 250);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.90 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.55 0.05 250);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.22 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.65 0.05 250);
+  --accent-foreground: oklch(0.12 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.65 0.05 250);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.16 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.65 0.05 250);
+  --sidebar-primary-foreground: oklch(0.95 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.45 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Playfair Display Fallback', Georgia, serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    /* Prevent any child from causing horizontal scroll */
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+  
+  /* Text overflow prevention */
+  p, h1, h2, h3, h4, h5, h6, a, li {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    /* Removed permanent will-change: transform to save GPU memory */
+  }
+  html {
+    /* Block horizontal overflow at the root */
+    overflow-x: hidden;
+    max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    max-width: 100vw;
+    /* Minimum 16px font on mobile so browsers don't zoom on input focus */
+    font-size: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Theme transitions — surgical targeting avoids the wildcard * performance trap.
+     Wildcard causes the browser to compute transitions on every element simultaneously = jank.
+     Only the bg layer, text, and borders need to fade; everything else snaps instantly. */
+  html.theme-transitioning body,
+  html.theme-transitioning header,
+  html.theme-transitioning main,
+  html.theme-transitioning section,
+  html.theme-transitioning footer,
+  html.theme-transitioning nav,
+  html.theme-transitioning .card,
+  html.theme-transitioning [class*="card"],
+  html.theme-transitioning [class*="btn"],
+  html.theme-transitioning [class*="badge"] {
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease !important;
+  }
+
+  /* GPU isolated sections — paint + layout containment reduces repaint area.
+     style containment prevents CSS counter/custom-property inheritance cost. */
+  .scroll-section {
+    contain: layout style paint;
+  }
+
+  /* Keep transforms instant so scroll animations aren't sluggish */
+  html *:where([class*="motion"]),
+  html *:where([data-framer-motion]) {
+    transition: none;
+  }
+}
+
+/* ── Hero section enter animations — pure CSS, no JS runtime cost ── */
+@keyframes heroFadeScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-img-enter  { animation: heroFadeScale 0.7s ease-out both; }
+  .hero-text-1     { animation: heroFadeUp 0.5s ease-out both; }
+  .hero-text-2     { animation: heroFadeUp 0.5s ease-out 0.1s both; }
+  .hero-text-3     { animation: heroFadeUp 0.5s ease-out 0.2s both; }
+  .hero-text-4     { animation: heroFadeUp 0.5s ease-out 0.4s both; }
+}
+
+/* ── FadeInUp — IntersectionObserver-driven, no framer-motion ── */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, transform;
+  }
+  .fade-in-up.fade-in-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+/* Reduced-motion: always visible */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up { opacity: 1; transform: none; }
+}
+
+
+/* ── Skip to content link (accessibility) ── */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ── Focus-visible: keyboard navigation ring ── */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* Remove outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Dark mode toggle button ── */
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+  /* Task 3 — remove 300ms tap delay */
+  touch-action: manipulation;
+}
+.theme-toggle:hover {
+  background-color: var(--secondary);
+  color: var(--foreground);
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+/* Task 1 — active tap feedback */
+.theme-toggle:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+.theme-toggle svg {
+  transition: transform 0.35s ease, opacity 0.25s ease;
+}
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+/* Glassmorphism cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-card {
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll margin for fixed nav (nav height ~72px + buffer) */
+.scroll-section {
+  scroll-margin-top: 80px;
+}
+
+/* Project card hover — shadow on ::after avoids full repaint */
+.project-card {
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  touch-action: manipulation;
+  /* Paint isolation: card repaints independently from the page */
+  contain: layout style paint;
+}
+/* Shadow lives on a compositor-only pseudo-element so changing it
+   never triggers a repaint of the card's content layer */
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0);
+  transition: box-shadow 0.2s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.project-card:hover::after {
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
+}
+/* Task 1 — active tap scale feedback for project cards */
+.project-card:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* Primary button hover */
+.btn-primary {
+  transition: transform 0.1s ease, opacity 0.2s ease, background-color 0.2s ease;
+  touch-action: manipulation;
+}
+.btn-primary:hover {
+  transform: scale(1.02);
+  opacity: 0.88;
+}
+/* Task 1 — stronger active scale feedback for primary buttons */
+.btn-primary:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* Secondary / outline button hover */
+.btn-secondary {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  touch-action: manipulation;
+}
+.btn-secondary:hover {
+  transform: scale(1.02);
+  background-color: var(--secondary);
+}
+/* Task 1 — stronger active scale feedback for secondary buttons */
+.btn-secondary:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* Social icon hover — color shift + subtle rotate */
+.social-icon {
+  transition: color 0.2s ease, transform 0.2s ease;
+  touch-action: manipulation;
+}
+.social-icon:hover {
+  color: var(--accent);
+  transform: rotate(8deg) scale(1.15);
+}
+/* Task 1 — active tap feedback for social icons / links */
+.social-icon:active {
+  opacity: 0.7;
+  transition: opacity 0.1s;
+}
+
+/* Skill card hover — shadow on ::after to avoid repaint of card content */
+.skill-card {
+  position: relative;
+  transition: transform 0.2s ease;
+  contain: layout style paint;
+}
+.skill-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0);
+  transition: box-shadow 0.2s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.skill-card:hover {
+  transform: translateY(-2px);
+}
+.skill-card:hover::after {
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero floating animation - desktop only */
+@media (min-width: 1024px) {
+  .hero-float {
+    animation: heroFloat 3s ease-in-out infinite;
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Responsive typography using clamp — floor at 1rem (16px) to prevent mobile zoom */
+@layer base {
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.75rem);
+  }
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+  }
+  p {
+    /* Minimum 1rem (16px) on all screen sizes */
+    font-size: clamp(1rem, 2vw, 1.125rem);
+  }
+}
+
+/* ── Contact form inputs ─────────────────────────────────────────────────────
+   16px font-size prevents iOS auto-zoom on focus.
+   min-height 44px meets touch target requirement.
+   Full-width, consistent border treatment.
+── */
+.contact-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.625rem 0.875rem;
+  font-size: 1rem;           /* 16px — prevents iOS zoom */
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.contact-input::placeholder {
+  color: var(--muted-foreground);
+  opacity: 0.7;
+}
+.contact-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 20%, transparent);
+}
+.contact-input:focus-visible {
+  outline: none; /* handled by box-shadow above */
+}
+
+/* Submit button — 44px min height, full width on mobile */
+.contact-submit {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.contact-submit:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: scale(1.01);
+}
+.contact-submit:active:not(:disabled) {
+  transform: scale(0.99);
+}
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mobile-specific overrides — screens under 768px */
+@media (max-width: 767px) {
+
+
+  /* Skill list items — keep at 16px */
+  li {
+    font-size: 1rem;
+  }
+
+  /* Tech badge text */
+  .text-xs {
+    font-size: 0.8125rem; /* 13px — badges are decorative, not body copy */
+  }
+
+  /* Nav link text — decorative, not body copy, keep smaller */
+  nav .text-sm {
+    font-size: 0.875rem;
+  }
+}
+
+/* ── Task 1 — Active tap feedback for nav links and generic interactive links ── */
+a:active,
+nav a:active {
+  opacity: 0.7;
+  transition: opacity 0.1s;
+}
+
+/* Hamburger menu button */
+.hamburger-btn {
+  touch-action: manipulation;
+}
+.hamburger-btn:active {
+  opacity: 0.7;
+  transition: opacity 0.1s;
+}
+
+/* ── Task 3 — touch-action: manipulation on contact form submit button ── */
+.contact-submit {
+  touch-action: manipulation;
+}
+
+/* ── Task 4 — Back to Top floating button ── */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.25);
+  /* visibility-based show/hide — preserves DOM for screen readers */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+  touch-action: manipulation;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+}
+.back-to-top:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* Mobile — tuck slightly closer to screen edge */
+@media (max-width: 767px) {
+  .back-to-top {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* ── Task 2 — Reduced motion: disable all non-essential animations ── */
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * Kill every transition and animation globally.
+   * We use !important to override inline Framer Motion styles too.
+   * Static layout (display, flex, grid, etc.) is unaffected.
+   */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Specifically stop the hero floating animation */
+  .hero-float {
+    animation: none !important;
+  }
+
+  /* Remove hover scale/shadow effects that move elements */
+  .project-card:hover,
+  .skill-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .theme-toggle:hover {
+    transform: none;
+  }
+
+  .social-icon:hover {
+    transform: none;
+  }
+
+  /* Keep the back to top visible-state transition instant */
+  .back-to-top {
+    transition: none !important;
+  }
+}
+
+/* ── Task 11 — Reading Progress Bar ── */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  z-index: 51; /* sits above the fixed nav */
+  transform-origin: left;
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress-bar {
+    display: none !important;
+  }
+}
+
+/* ── Task 10 — Copy Email Button ── */
+.copy-email-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+.copy-email-btn:hover {
+  background: var(--secondary);
+  color: var(--foreground);
+  border-color: var(--accent);
+}
+.copy-email-btn:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+.copied-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: tooltip-pop 0.15s ease;
+}
+.copied-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--primary);
+}
+@keyframes tooltip-pop {
+  from { opacity: 0; transform: translateX(-50%) scale(0.85); }
+  to   { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+/* ── Task 7 — Exit Intent Popup ── */
+.exit-intent-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: ei-fade-in 0.2s ease;
+}
+.exit-intent-card {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 2);
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 32px 80px -20px rgba(0, 0, 0, 0.25);
+  animation: ei-slide-up 0.25s ease;
+}
+.exit-intent-close {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  touch-action: manipulation;
+}
+.exit-intent-close:hover {
+  background: var(--secondary);
+  color: var(--foreground);
+}
+.exit-intent-close:active {
+  transform: scale(0.95);
+}
+@keyframes ei-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ei-slide-up {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exit-intent-backdrop,
+  .exit-intent-card {
+    animation: none;
+  }
+}
+
+
+/* -- Client Card breathing glow animation ---------------------------------- */
+@keyframes client-card-breathe {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+.client-card-glow {
+  background: radial-gradient(
+    ellipse at 50% -10%,
+    oklch(0.55 0.05 250 / 0.10) 0%,
+    transparent 70%
+  );
+  animation: client-card-breathe 3.5s ease-in-out infinite;
+}
+
+.dark .client-card-glow {
+  background: radial-gradient(
+    ellipse at 50% -10%,
+    oklch(0.65 0.05 250 / 0.13) 0%,
+    transparent 70%
+  );
+}
+
+/* ── iOS 17 Style Glassmorphism Header ── */
+.ios-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  
+  /* Light mode static header glass */
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateY(0);
+  
+  /* Normal, organic transition when returning to static header */
+  transition:
+    transform 650ms cubic-bezier(0.22, 0.61, 0.36, 1.0),
+    left 650ms cubic-bezier(0.22, 0.61, 0.36, 1.0),
+    right 650ms cubic-bezier(0.22, 0.61, 0.36, 1.0),
+    border-radius 650ms cubic-bezier(0.22, 0.61, 0.36, 1.0),
+    background-color 650ms ease,
+    backdrop-filter 650ms ease,
+    box-shadow 650ms ease,
+    padding 650ms ease;
+  
+  contain: layout paint;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .ios-header {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+.dark .ios-header {
+  /* Dark mode static header glass */
+  background: rgba(28, 28, 30, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .dark .ios-header {
+    background: rgba(28, 28, 30, 0.95);
+  }
+}
+
+.ios-header nav {
+  transition: padding 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── State 2: floating pill (animates left/right and Y) ── */
+.ios-header.header-floating {
+  /* Use transform for vertical offset to prevent layout jumping */
+  transform: translateY(16px);
+  left: calc(50% - 470px);
+  right: calc(50% - 470px);
+  border-radius: 100px;
+  border-bottom: none;
+  
+  /* Pill light mode glass */
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  /* Premium, slow transition when entering the pill state */
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    left 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    right 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.85s ease,
+    backdrop-filter 0.85s ease,
+    box-shadow 0.85s ease,
+    padding 0.85s ease;
+}
+
+.dark .ios-header.header-floating {
+  /* Pill dark mode glass */
+  background: rgba(28, 28, 30, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 0.5px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ios-header.header-floating nav {
+  padding: 10px 24px !important;
+}
+
+/* Snap off-screen instantly (no transition), then JS removes this to trigger slide-in */
+.ios-header.header-entering {
+  transform: translateY(-110%) !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+  transition: none !important;
+}
+
+/* Slide pill off-screen upward (leave animation) if needed */
+.ios-header.header-leaving {
+  transform: translateY(-110%);
+  left: 0;
+  right: 0;
+  border-radius: 0;
+}
+
+/* More opaque background when mobile menu is open */
+.ios-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.85);
+}
+.dark .ios-header.is-scrolled {
+  background: rgba(28, 28, 30, 0.85);
+}
+
+/* will-change only while actively scrolling; JS removes after 200ms */
+.ios-header.is-scrolling {
+  will-change: transform;
+}
+
+/* Mobile: smaller pill */
+@media (max-width: 768px) {
+  .ios-header.header-floating {
+    left: 7.5%;
+    right: 7.5%;
+    border-radius: 14px;
+  }
+  .ios-header.header-floating nav {
+    padding: 8px 16px !important;
+  }
+}
+
+/* Reduced-motion / tiny screen: solid opaque, no blur, no animation */
+@media (prefers-reduced-motion: reduce), (max-width: 374px) {
+  .ios-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgb(255, 255, 255) !important;
+    transition: none !important;
+  }
+  .dark .ios-header {
+    background: rgb(28, 28, 30) !important;
+  }
+  .ios-header.is-scrolled {
+    background: rgb(255, 255, 255);
+  }
+  .dark .ios-header.is-scrolled {
+    background: rgb(28, 28, 30);
+  }
+}
