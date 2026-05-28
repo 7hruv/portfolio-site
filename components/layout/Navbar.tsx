@@ -266,7 +266,7 @@ export default function Navbar() {
               )
             })}
             <Link
-              href="/resume.pdf"
+              href="/dhruv_resume.docx"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download resume (opens PDF)"
@@ -376,7 +376,7 @@ export default function Navbar() {
               })}
               <div className="flex items-center gap-3 pt-2 pb-1 pl-3">
                 <Link
-                  href="/resume.pdf"
+                  href="/dhruv_resume.docx"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Download resume (opens PDF)"

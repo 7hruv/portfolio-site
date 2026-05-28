@@ -67,7 +67,7 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 hero-text-4">
               <Link
-                href="/resume.pdf"
+                href="/dhruv_resume.docx"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download resume (opens PDF)"
